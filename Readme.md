@@ -1,3 +1,3 @@
-# Perfect Testing
+# Prefect Testing
 
-This repo tests the functionality and the concepts of [perfect](https://www.prefect.io/).
+This repo tests the functionality and the concepts of [prefect](https://www.prefect.io/).
