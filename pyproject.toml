@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "prefect-testing"
+version = "0.0.1"
+description = "A project to test the prefect features"
+authors = ["Lukas Ellemunt"]
+readme = "README.md"
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.12"
+prefect = "^3.2.2"
+httpx = "^0.28.1"
+
+[tool.poetry.group.dev.dependencies]
+ipykernel = "^6.29.5"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
