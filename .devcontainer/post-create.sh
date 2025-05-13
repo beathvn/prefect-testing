@@ -1,7 +1,5 @@
-pip install poetry
-poetry config virtualenvs.in-project true
-poetry install
-
+# install uv
+curl -LsSf https://astral.sh/uv/install.sh | sh
 
 # configure zsh
 echo "cloning zsh plugins"
