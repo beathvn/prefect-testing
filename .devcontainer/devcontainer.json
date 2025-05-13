@@ -2,14 +2,17 @@
     "name": "Python 3",
     "build": {
         "dockerfile": "./Dockerfile",
-        "context": "."
+        "context": ".",
+        "args": {
+            "VARIANT": "3.11-bullseye"
+        }
     },
     "runArgs": [
         "--network=host"
     ],
     "features": {
         "ghcr.io/devcontainers/features/common-utils:2": { // https://github.com/devcontainers/features/tree/main/src/common-utils
-            "installZsh": "true", // by default, zsh is installed, also oh-my-zsh
+            "installZsh": "true",
             "username": "vscode",
             "userUid": "1000",
             "userGid": "1000",
@@ -18,19 +21,22 @@
         "ghcr.io/devcontainers/features/git:1": { // https://github.com/devcontainers/features/tree/main/src/git
             "version": "latest",
             "ppa": "false"
-        }
+        },
+        "ghcr.io/devcontainers/features/docker-in-docker:2": {},
+        "ghcr.io/devcontainers/features/terraform:1": {}, // https://github.com/devcontainers/features/tree/main/src/terraform
+        "ghcr.io/devcontainers/features/azure-cli:1": {},
+        "ghcr.io/devcontainers-extra/features/checkov:1": {},
+        "ghcr.io/dhoeric/features/trivy:1": {},
+        "ghcr.io/dhoeric/features/terraform-docs:1": {}
     },
     "customizations": {
         "vscode": {
             "settings": {
-                // "files.exclude": { // if you want to see the .git folder (f.ex. for the per commit hooks understanding)
-                //     "**/.git": false
-                // },
                 "python.defaultInterpreterPath": "./.venv/bin/python",
                 "python.linting.enabled": true,
                 "python.linting.pylintEnabled": true,
                 "[python]": {
-                    "editor.defaultFormatter": "ms-python.black-formatter",
+                    "editor.defaultFormatter": "charliermarsh.ruff",
                     "editor.formatOnSave": true
                 },
                 "terminal.integrated.defaultProfile.linux": "zsh",
@@ -57,7 +63,7 @@
             },
             "extensions": [
                 "ms-python.python",
-                "ms-python.black-formatter",
+                "charliermarsh.ruff",
                 "github.copilot",
                 "github.copilot-chat",
                 "mhutchie.git-graph",
@@ -65,7 +71,11 @@
                 "tamasfe.even-better-toml",
                 "ms-toolsai.jupyter",
                 "gruntfuggly.todo-tree",
-                "davidanson.vscode-markdownlint"
+                "yzhang.markdown-all-in-one",
+                "davidanson.vscode-markdownlint",
+                "kejun.markdown-alert",
+                "alefragnani.bookmarks",
+                "ms-toolsai.datawrangler"
             ]
         }
     },
